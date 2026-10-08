@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "mani4.repeating-reminders",
+  "name": "Repeating Reminders",
+  "version": "1.0.0",
+  "author": "MaNi4",
+  "license": "MIT",
+  "description": "One-off and repeating reminders in the Omarchy bar. They keep to the clock through package updates, sleep and reboots, and stay quiet while notifications are silenced unless told otherwise",
+  "kinds": [
+    "bar-widget",
+    "service"
+  ],
+  "entryPoints": {
+    "barWidget": "Panel.qml",
+    "service": "Service.qml"
+  },
+  "barWidget": {
+    "displayName": "Repeating Reminders",
+    "description": "One-off and repeating reminders that keep their time",
+    "category": "Productivity",
+    "aliases": [
+      "reminder",
+      "reminders",
+      "timer",
+      "repeat",
+      "loop",
+      "water"
+    ],
+    "allowMultiple": false,
+    "defaultSection": "right",
+    "defaults": {
+      "throughSilence": false
+    },
+    "schema": [
+      {
+        "key": "throughSilence",
+        "type": "boolean",
+        "label": "New reminders notify even when notifications are silenced",
+        "defaultValue": false
+      }
+    ]
+  }
+}
