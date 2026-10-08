@@ -29,6 +29,7 @@ gone, then remove the plugin:
 ~/.config/omarchy/plugins/mani4.repeating-reminders/bin/repeating-reminder clear
 omarchy plugin remove mani4.repeating-reminders
 rm -rf ~/.local/state/repeating-reminders
+rm -f ~/.local/bin/repeating-reminder   # if you linked the command
 ```
 
 The plugin writes nothing outside its own folder and that state directory.
@@ -63,12 +64,14 @@ The plugin writes nothing outside its own folder and that state directory.
 
 ## Command line
 
-The script is in the plugin's folder, not on your `PATH`, so call it by its
-full path or give it a short name first:
+Everything the panel does is also a command. The script lives in the plugin's
+folder, which is not on your `PATH`; link it once and it works from anywhere:
 
 ```bash
-alias repeating-reminder=~/.config/omarchy/plugins/mani4.repeating-reminders/bin/repeating-reminder
+ln -s ~/.config/omarchy/plugins/mani4.repeating-reminders/bin/repeating-reminder ~/.local/bin/
+```
 
+```bash
 repeating-reminder add 30 "Check the oven"        # once, in 30 minutes
 repeating-reminder add --loop 30 "Drink water"    # every 30 minutes
 repeating-reminder add --loop 90s "Stretch"       # every 90 seconds
@@ -77,6 +80,9 @@ repeating-reminder list                           # JSON
 repeating-reminder stop <unit>                    # <unit> as printed by list
 repeating-reminder clear
 ```
+
+The plugin does not make that link itself: installing it changes nothing
+outside its own folder. Without the link, call the script by its full path.
 
 Open the panel from a keybinding with
 `omarchy-shell -q mani4.repeating-reminders toggle`.
