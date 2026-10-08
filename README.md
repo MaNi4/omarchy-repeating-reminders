@@ -20,6 +20,19 @@ omarchy plugin add https://github.com/MaNi4/omarchy-repeating-reminders
 Needs `jq`, `flock` (util-linux) and systemd user timers, all part of a stock
 Omarchy install.
 
+## Remove
+
+Stop the reminders first, so no timer is left pointing at a script that is
+gone, then remove the plugin:
+
+```bash
+~/.config/omarchy/plugins/mani4.repeating-reminders/bin/repeating-reminder clear
+omarchy plugin remove mani4.repeating-reminders
+rm -rf ~/.local/state/repeating-reminders
+```
+
+The plugin writes nothing outside its own folder and that state directory.
+
 ## Using it
 
 - Click the bell for the panel. Type the minutes, Enter, type a message (or
