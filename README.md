@@ -14,7 +14,7 @@ Desktop notification reminders in the Omarchy bar. They work like the built-in
 ## Install
 
 ```bash
-omarchy plugin add https://github.com/MaNi4/omarchy-repeating-reminders
+omarchy plugin add https://github.com/MaNi4/repeating-reminders
 ```
 
 Needs `jq`, `flock` (util-linux) and systemd user timers, all part of a stock
