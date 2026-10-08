@@ -63,14 +63,19 @@ The plugin writes nothing outside its own folder and that state directory.
 
 ## Command line
 
+The script is in the plugin's folder, not on your `PATH`, so call it by its
+full path or give it a short name first:
+
 ```bash
-bin/repeating-reminder add 30 "Check the oven"        # once, in 30 minutes
-bin/repeating-reminder add --loop 30 "Drink water"    # every 30 minutes
-bin/repeating-reminder add --loop 90s "Stretch"       # every 90 seconds
-bin/repeating-reminder add --loud 30 "Call back"      # shows even while notifications are silenced
-bin/repeating-reminder list                           # JSON
-bin/repeating-reminder stop <unit>
-bin/repeating-reminder clear
+alias repeating-reminder=~/.config/omarchy/plugins/mani4.repeating-reminders/bin/repeating-reminder
+
+repeating-reminder add 30 "Check the oven"        # once, in 30 minutes
+repeating-reminder add --loop 30 "Drink water"    # every 30 minutes
+repeating-reminder add --loop 90s "Stretch"       # every 90 seconds
+repeating-reminder add --loud 30 "Call back"      # shows even while notifications are silenced
+repeating-reminder list                           # JSON
+repeating-reminder stop <unit>                    # <unit> as printed by list
+repeating-reminder clear
 ```
 
 Open the panel from a keybinding with
